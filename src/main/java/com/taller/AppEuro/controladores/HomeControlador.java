@@ -25,9 +25,9 @@ public class HomeControlador {
     @Autowired
     public UsuarioService usuarioservi;
     
-    @GetMapping("/inicio")
-    public String index(){
-    return "index";
+    @GetMapping("/")
+    public String Homepage(){
+    return "index.html";
     }
     
     @GetMapping("/v1/login")
