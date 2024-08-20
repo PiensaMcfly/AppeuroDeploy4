@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App EuroSport Chile</title>
+    <link rel="stylesheet" href="/dashboard.css">
+    <link rel="stylesheet" href="/tablaclientes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+</head>
+<body>
+    
+
+  <main>
+  <div th:replace="fragments/sidebar :: sidebar"></div>
+  <!-- Sidebar -->
+  
+  
+  
+  <div id="viewport">
+    <!-- CONTENIDO DASHBOARD -->
+    <div id="content">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#"><i class="zmdi zmdi-notifications text-danger"></i></a>
+                    </li>
+                    <li><a href="/dashboard/panel">Inicio</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container-fluid">
+          <form action="#" th:action="@{/panel/search}" th:method="get">
+            <label for="keyword">Buscar:</label>
+            <input type="text" id="keyword" name="keyword" placeholder="Ingrese palabra clave" />
+            <button type="submit">Buscar</button>
+        </form>
+            <p>
+              <div class="cartelFormularios">
+                <h1>ULTIMOS CLIENTES</h1>
+              </div>
+                <!-- TABLA DE ULTIMOS CLIENTES -->
+                <h2>Resultados</h2>
+    <div th:if="${clientes != null}">
+        <table>
+            <thead>
+                <tr>
+                    <th>RUT</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Teléfono</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="cliente : ${clientes}">
+                    <td th:text="${cliente.rut}"></td>
+                    <td th:text="${cliente.nombre}"></td>
+                    <td th:text="${cliente.apellido}"></td>
+                    <td th:text="${cliente.telefono}"></td>
+                    <td th:text="${cliente.mail}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+                        <!-- Paginación -->
+                        <div class="pagination">
+                            <ul class="pagination">
+                                <li th:classappend="${currentPage == 0} ? 'disabled'">
+                                    <a th:href="@{/dashboard/panel(page=${currentPage - 1})}" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                                <li th:each="i : ${#numbers.sequence(0, clientes.totalPages - 1)}" th:classappend="${i == currentPage} ? 'active'">
+                                    <a th:href="@{/dashboard/panel(page=${i})}" th:text="${i + 1}">1</a>
+                                </li>
+                                <li th:classappend="${currentPage + 1 == clientes.totalPages} ? 'disabled'">
+                                    <a th:href="@{/dashboard/panel(page=${currentPage + 1})}" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </p>
+        </div>
+    </div>
+</div>
+
+
+</main>
+<footer>
+  <p> Cuyo Devs Derechos Reservados 2024</p>
+</footer>
+
+<script>
+  $(document).ready(function () {
+      $('#sidebarCollapse').on('click', function () {
+          $('#sidebar').toggleClass('active');
+          $('#viewport').toggleClass('active');
+      });
+  });
+</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/Tablaclientes.js"></script>
+<script src="/js/sidebar.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!-- --------------------------------------------SIDE BAR --------------------------------------------------------------------->
+
+<div th:fragment="sidebar">
+
+  <div id="sidebar">
+    <img src="/img/logoEurto.jpeg" alt="logoEuro" width="100%">
+    <header>
+      <a href="#">PANEL ADMIN</a>
+    </header>
+    <ul class="nav">
+      <li>
+        <a href="/dashboard/panel">
+          <i class="zmdi zmdi-view-dashboard"></i> Inicio
+        </a>
+      </li>
+      <li>
+        <a href="/clientes/lista">
+          <i class="zmdi zmdi-link"></i> Clientes
+        </a>
+      </li>
+      <li>
+        <a href="/autos/lista">
+          <i class="zmdi zmdi-widgets"></i> Autos
+        </a>
+      </li>
+      <li>
+        <a href="/cotizaciones/lista">
+          <i class="zmdi zmdi-calendar"></i> Cotizaciones
+        </a>
+      </li>
+      <li>
+        <a href="/dashboard/flujo">
+          <i class="zmdi zmdi-info-outline"></i> About
+        </a>
+      </li>
+  
+      <li>
+        <a th:href="@{/logout}">
+          <i class="zmdi zmdi-comment-more"></i> Cerrar Sesion
+        </a>
+      </li>
+    </ul>
+    
+  </div>

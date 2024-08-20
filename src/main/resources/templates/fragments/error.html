@@ -1,0 +1,10 @@
+
+<div th:fragment="mensajeError">
+<div class="container">
+    <div th:if="${successMessage}" class="alert alert-success" role="alert">
+        <i class="fa fa-check-circle"></i> <span th:text="${successMessage}"></span>
+    </div>
+    <div th:if="${errorMessage}" class="alert alert-danger" role="alert">
+        <i class="fa fa-times-circle"></i> <span th:text="${errorMessage}"></span>
+    </div>
+<!-- <div th:replace="/fragments/card :: div"></div> asi lo llamo -        (ruta)           (nombre del fragment a llamar).-->
