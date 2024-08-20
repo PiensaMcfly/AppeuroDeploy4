@@ -10,11 +10,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import com.taller.AppEuro.controladores.BaseController;
 
 
 @Controller
-public class ErroresControlador extends BaseController implements ErrorController {
+public class ErroresControlador implements ErrorController {
 
     @RequestMapping(value = "/error", method = {RequestMethod.GET, RequestMethod.POST})
     public ModelAndView renderErrorPage(HttpServletRequest httpRequest) {

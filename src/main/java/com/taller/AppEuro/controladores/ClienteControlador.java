@@ -15,12 +15,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import com.taller.AppEuro.controladores.BaseController;
 
 
 @Controller
 @RequestMapping("/clientes")
-public class ClienteControlador extends BaseController {
+public class ClienteControlador {
 
     @Autowired
     private ClienteService clienteService;

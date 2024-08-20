@@ -10,7 +10,7 @@ import com.taller.AppEuro.exepciones.MiException;
 import com.taller.AppEuro.repository.IAutoRepository;
 import com.taller.AppEuro.servicios.AutoService;
 import com.taller.AppEuro.servicios.ClienteService;
-import com.taller.AppEuro.controladores.BaseController;
+
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,13 +23,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/autos")
-public class AutoControlador extends BaseController {
+public class AutoControlador {
 
     @Autowired
     private AutoService autoService;

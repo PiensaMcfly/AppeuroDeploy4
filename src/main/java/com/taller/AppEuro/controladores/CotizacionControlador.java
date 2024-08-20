@@ -25,11 +25,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import com.taller.AppEuro.controladores.BaseController;
 
 @Controller
 @RequestMapping("/cotizaciones")
-public class CotizacionControlador extends BaseController {
+public class CotizacionControlador {
 
     @Autowired
     private CotizacionService cotizacionService;
