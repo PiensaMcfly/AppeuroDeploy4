@@ -33,7 +33,7 @@ public class HomeControlador {
     @GetMapping("/v1/login")
     public String login(@RequestParam(required = false)String error, Model modelo){
        
-    return "Login.html";}
+    return "Login";}
     
     
      //Registro ADM-----------------

@@ -36,8 +36,8 @@ public class AppSecurity extends WebSecurityConfigurerAdapter {
 
     public void configure(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests()
-              //  .antMatchers("/css/*", "/js/*", "/img", "/**")
-               // .permitAll()
+                //.antMatchers("/css/*", "/js/*", "/img", "/**")
+                 //.permitAll()
                 .and().formLogin()
                 .loginPage("/v1/login")
                 .loginProcessingUrl("/logincheck")
