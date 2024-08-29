@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+  <link rel="stylesheet" href="/registro.css">
+  <link rel="stylesheet" href="/dashboard.css">
+  <title>Registro Nueva Cotizacion</title>
+</head>
+<body>
+  
+  <!-- Sidebar -->
+  <div th:replace="fragments/sidebar :: sidebar"></div>
+    <div id="viewport">
+
+        <!-- Content -->
+        <div id="content">
+          <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <ul class="nav navbar-nav navbar-right">
+                <li>
+                  <a href="#"><i class="zmdi zmdi-notifications text-danger"></i>
+                  </a>
+                </li>
+                <li><a href="/dashboard/panel">Inicio</a></li>
+              </ul>
+            </div>
+          </nav>
+          <div class="container-fluid">
+
+
+  <div class="container">
+    <div class="card">
+    <h1>Nuevo Auto</h1>
+    <form th:action="@{/autos/save}" th:object="${auto}" method="post">
+      <h5>IMPORTANTE (Buscar cliente)</h5>
+        <label for="cliente">Cliente:</label>
+        <select id="cliente" th:field="*{cliente.idCliente}">
+            <option th:each="cliente : ${clientes}" th:value="${cliente.idCliente}" th:text="${cliente.nombre + ' ' + cliente.apellido}"></option>
+        </select>
+      
+        <label for="modelo">Modelo:</label>
+        <input type="text" id="modelo" th:field="*{modelo}" required><br>
+        <label for="marca">Marca:</label>
+        <input type="text" id="marca" th:field="*{marca}" required><br>
+        <label for="patente">Patente:</label>
+        <input type="text" id="patente" th:field="*{patente}" required><br>
+        <label for="vin">VIN:</label>
+        <input type="text" id="vin" th:field="*{vin}" required><br>
+        <label for="kilometraje">Kilometraje:</label>
+        <input type="text" id="kilometraje" th:field="*{kilometraje}" required><br>
+        <label for="comentario">Comentario:</label>
+        <input type="text" id="comentario" th:field="*{comentario}" required><br>
+        <label for="fechadeCreacion">Fecha de Creación:</label>
+        <input type="date" id="fechadeCreacion" th:field="*{fechadeCreacion}" required><br>
+        <button type="submit">Siguiente</button>
+    </form>
+    </div>
+  </div>
+  
+</body>
+</html>
